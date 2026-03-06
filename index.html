@@ -406,6 +406,115 @@
       color: var(--muted);
     }
 
+    /* ── PRIVATE BADGE ──────────────────────────────────── */
+    .proj-private {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .68rem; padding: 4px 10px;
+      border-radius: 100px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--glass-border);
+      color: var(--muted);
+    }
+    .proj-private svg { width: 11px; height: 11px; }
+
+    /* ── EXPERIENCE ─────────────────────────────────────── */
+    #experience { padding: 130px 0; }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    .exp-col-title {
+      font-size: .72rem; letter-spacing: .22em;
+      color: var(--muted); text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 28px;
+    }
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 6px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent1), var(--accent2), transparent);
+    }
+    .tl-item { position: relative; margin-bottom: 40px; }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute; left: -28px; top: 6px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--accent2);
+      box-shadow: 0 0 12px rgba(6,182,212,.6);
+      border: 2px solid var(--bg);
+    }
+    .tl-dot.edu {
+      background: var(--accent3);
+      box-shadow: 0 0 12px rgba(244,114,182,.6);
+    }
+    .tl-company {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem; font-weight: 600;
+      color: var(--accent2); letter-spacing: .05em;
+      margin-bottom: 4px;
+    }
+    .tl-company.edu { color: var(--accent3); }
+    .tl-role {
+      font-size: 1rem; font-weight: 600;
+      letter-spacing: -.3px; margin-bottom: 10px;
+    }
+    .tl-body {
+      color: var(--muted); font-size: .88rem; line-height: 1.8;
+    }
+    .tl-body ul { list-style: none; padding: 0; }
+    .tl-body ul li { position: relative; padding-left: 16px; margin-bottom: 5px; }
+    .tl-body ul li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--accent2); font-size: .8rem;
+    }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tl-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .7rem; padding: 2px 9px;
+      border-radius: 100px;
+      background: rgba(124,58,237,.08);
+      border: 1px solid rgba(124,58,237,.22);
+      color: var(--accent1);
+    }
+    .edu-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 22px; padding: 30px;
+      backdrop-filter: blur(12px);
+      transition: all .32s cubic-bezier(.23,1,.32,1);
+    }
+    .edu-card:hover {
+      border-color: rgba(244,114,182,.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    }
+    .edu-school {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem; color: var(--accent3);
+      letter-spacing: .06em; margin-bottom: 6px;
+    }
+    .edu-degree { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; letter-spacing: -.3px; }
+    .edu-detail { font-size: .88rem; color: var(--muted); line-height: 1.7; }
+    .edu-status {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem;
+      color: var(--accent3);
+      background: rgba(244,114,182,.08);
+      border: 1px solid rgba(244,114,182,.22);
+      padding: 4px 12px; border-radius: 100px;
+    }
+    .edu-status::before { content: '●'; font-size: .4rem; animation: blink 1.6s infinite; }
+
+    @media (max-width: 768px) {
+      .exp-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
     /* ── CONTACT ────────────────────────────────────────── */
     #contact { padding: 130px 0 170px; }
     .contact-wrap { text-align: center; max-width: 580px; margin: 0 auto; }
@@ -480,6 +589,7 @@
     <ul class="nav-links">
       <li><a href="#about">about</a></li>
       <li><a href="#skills">skills</a></li>
+      <li><a href="#experience">experience</a></li>
       <li><a href="#projects">projects</a></li>
       <li><a href="#contact">contact</a></li>
     </ul>
@@ -538,12 +648,12 @@
       </div>
       <div class="about-stats reveal reveal-d2">
         <div class="stat-card">
-          <div class="stat-num">2+</div>
-          <div class="stat-lbl">Years coding</div>
+          <div class="stat-num">2</div>
+          <div class="stat-lbl">Internships completed</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">10+</div>
-          <div class="stat-lbl">Projects shipped</div>
+          <div class="stat-num">MBO</div>
+          <div class="stat-lbl">Software Development, Curio</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">5+</div>
@@ -576,8 +686,9 @@
           <span class="tag tag-v">C#</span>
           <span class="tag tag-v">.NET</span>
           <span class="tag tag-v">REST APIs</span>
-          <span class="tag tag-v">gRPC</span>
           <span class="tag tag-v">Entity Framework</span>
+          <span class="tag tag-v">GORM</span>
+          <span class="tag tag-v">sqlc</span>
         </div>
       </div>
       <div class="skill-card reveal reveal-d2">
@@ -596,13 +707,90 @@
         <div class="skill-name">Tools & Infrastructure</div>
         <div class="skill-tags">
           <span class="tag tag-p">Git</span>
+          <span class="tag tag-p">GitHub</span>
+          <span class="tag tag-p">GitLab</span>
           <span class="tag tag-p">Docker</span>
           <span class="tag tag-p">PostgreSQL</span>
-          <span class="tag tag-p">SQLite</span>
-          <span class="tag tag-p">Linux</span>
-          <span class="tag tag-p">GitHub Actions</span>
+          <span class="tag tag-p">MSSQL</span>
+          <span class="tag tag-p">Swagger</span>
+          <span class="tag tag-p">Writing Tests</span>
+          <span class="tag tag-p">Agile / Scrum</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE & EDUCATION -->
+<section id="experience">
+  <div class="container">
+    <div class="reveal">
+      <div class="s-label">// experience & education</div>
+      <h2 class="s-title">Where I've <span>Grown</span></h2>
+    </div>
+    <div class="exp-grid">
+
+      <!-- Internships timeline -->
+      <div class="reveal reveal-d1">
+        <div class="exp-col-title">internships</div>
+        <div class="timeline">
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-company">Bending the Rules</div>
+            <div class="tl-role">Software Developer Intern</div>
+            <div class="tl-body">
+              <ul>
+                <li>Built an Everhour report generator — clients can reserve dayparts and generate PDFs from their logged time</li>
+                <li>Contributed to NJoin, a security-first NFC door-access application for a corporate client</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="tl-tag">Go</span>
+                <span class="tl-tag">PostgreSQL</span>
+                <span class="tl-tag">NFC</span>
+                <span class="tl-tag">PDF generation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-company">Profix IT Solutions</div>
+            <div class="tl-role">Software Developer Intern</div>
+            <div class="tl-body">
+              <ul>
+                <li>Developed a customer portal for account management with full 2FA</li>
+                <li>Designed and implemented the entire 2FA logic end-to-end, from API to app</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="tl-tag">C#</span>
+                <span class="tl-tag">.NET MAUI</span>
+                <span class="tl-tag">HTML</span>
+                <span class="tl-tag">CSS</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="reveal reveal-d2">
+        <div class="exp-col-title">education</div>
+        <div class="edu-card">
+          <div class="edu-school">Curio &mdash; Breda</div>
+          <div class="edu-degree">MBO Software Development</div>
+          <div class="edu-detail">
+            Studying software development with a focus on backend systems, APIs, and
+            full-stack applications. Working with modern tools like Docker, Git, and
+            agile workflows throughout the programme.
+          </div>
+          <div class="edu-status">almost finished</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -620,82 +808,66 @@
 
       <div class="proj-card reveal reveal-d1">
         <div class="proj-top">
-          <div class="proj-icon">🚀</div>
-          <a href="#" class="proj-gh-link" title="GitHub">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          </a>
+          <div class="proj-icon">🔐</div>
+          <span class="proj-private">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            private
+          </span>
         </div>
-        <div class="proj-name">Nexus API Gateway</div>
+        <div class="proj-name">Customer Portal & 2FA</div>
         <div class="proj-desc">
-          A high-throughput API gateway written in Go. Handles routing, rate limiting,
-          JWT auth, and distributed tracing. Sustains 50k+ req/s on modest hardware.
+          Built during my internship at <strong style="color:var(--text)">Profix IT Solutions</strong>.
+          A cross-platform app letting customers manage their account with full two-factor
+          authentication — designed and built the entire 2FA flow from API to UI myself.
         </div>
         <div class="proj-stack">
-          <span class="proj-tech">Go</span>
-          <span class="proj-tech">Redis</span>
-          <span class="proj-tech">PostgreSQL</span>
-          <span class="proj-tech">Docker</span>
+          <span class="proj-tech">C#</span>
+          <span class="proj-tech">.NET MAUI</span>
+          <span class="proj-tech">HTML</span>
+          <span class="proj-tech">CSS</span>
         </div>
       </div>
 
       <div class="proj-card reveal reveal-d2">
         <div class="proj-top">
-          <div class="proj-icon">🔐</div>
-          <a href="#" class="proj-gh-link" title="GitHub">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          </a>
+          <div class="proj-icon">📄</div>
+          <span class="proj-private">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            private
+          </span>
         </div>
-        <div class="proj-name">Vaultify</div>
+        <div class="proj-name">Everhour Report Generator</div>
         <div class="proj-desc">
-          Cross-platform password manager built with .NET MAUI and C#.
-          AES-256 encryption, biometric auth, and seamless sync across iOS, Android, and Windows.
+          Built at <strong style="color:var(--text)">Bending the Rules</strong>. Clients can
+          reserve dayparts (morning, afternoon, full day), and the system generates a PDF report
+          based on their reserved Everhour time entries.
         </div>
         <div class="proj-stack">
-          <span class="proj-tech">C#</span>
-          <span class="proj-tech">.NET MAUI</span>
-          <span class="proj-tech">SQLite</span>
-          <span class="proj-tech">AES-256</span>
+          <span class="proj-tech">Go</span>
+          <span class="proj-tech">PDF generation</span>
+          <span class="proj-tech">Everhour API</span>
+          <span class="proj-tech">PostgreSQL</span>
         </div>
       </div>
 
       <div class="proj-card reveal reveal-d3">
         <div class="proj-top">
-          <div class="proj-icon">📊</div>
-          <a href="#" class="proj-gh-link" title="GitHub">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          </a>
+          <div class="proj-icon">🚪</div>
+          <span class="proj-private">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            private
+          </span>
         </div>
-        <div class="proj-name">Pulse Dashboard</div>
+        <div class="proj-name">NJoin</div>
         <div class="proj-desc">
-          Real-time analytics dashboard — Svelte frontend, C# .NET backend.
-          WebSocket-powered live charts, custom query builder, and CSV export.
+          Contributed to this secure door-access application at <strong style="color:var(--text)">Bending the Rules</strong>.
+          Lets employees open company doors using their phone's NFC — built with security as the
+          core requirement throughout.
         </div>
         <div class="proj-stack">
-          <span class="proj-tech">Svelte</span>
-          <span class="proj-tech">TypeScript</span>
-          <span class="proj-tech">C#</span>
-          <span class="proj-tech">WebSockets</span>
-          <span class="proj-tech">PostgreSQL</span>
-        </div>
-      </div>
-
-      <div class="proj-card reveal reveal-d4">
-        <div class="proj-top">
-          <div class="proj-icon">⏱️</div>
-          <a href="#" class="proj-gh-link" title="GitHub">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          </a>
-        </div>
-        <div class="proj-name">Cron Conductor</div>
-        <div class="proj-desc">
-          Distributed job scheduler written in Go. CRON expressions, retry policies,
-          dead-letter queues, and a monitoring UI for job health and history.
-        </div>
-        <div class="proj-stack">
-          <span class="proj-tech">Go</span>
-          <span class="proj-tech">Redis</span>
-          <span class="proj-tech">PostgreSQL</span>
-          <span class="proj-tech">Docker</span>
+          <span class="proj-tech">NFC</span>
+          <span class="proj-tech">Security</span>
+          <span class="proj-tech">Mobile</span>
         </div>
       </div>
 
